@@ -1,0 +1,202 @@
+Ej.2(35 pts)  Una empresa que elabora y comercializa gaseosas le paga a sus empleados en forma mensual. De cada empleado se tienen como datos su nombre, apellido, dni y años de antigüedad. 
+Además tiene 3 tipos de empleados:  
+empleado administrativo:  cobra un sueldo fijo por hora y la hora extra se paga un 50% más de la hora normal. Este tipo de empleado tiene como atributos la cantidad de horas trabajadas y el la remuneración por hora.
+empleado de producción: no hacen horas extras y cobran un monto fijo mensual. La empresa opera en 2 turnos para la producción (diurno y nocturno). El empleado del turno noche cobra un 25% que el empleado diurno. Los datos propios de este  empleado son el turno (0: diurno, 1: nocturno) y el monto fijo mensual.
+empleados vendedores: cobran una comisión del 0,4% de acuerdo al total facturado  en ventas realizadas con cheques y el 0.9% de las ventas realizadas al contado.
+Cree la clase Empleado que contenga un método llamado salario() para obtener la remuneración del empleado y codifique los métodos que considere necesarios.
+Derive de Empleado las clases Administrativo, Produccion y Vendedor con los atributos antes mencionados (en los 3 tipos de empleados), con sus constructores y métodos para obtener lo que cobra cada uno.
+Cree una función independiente que reciba un vector con todos los empleados de la empresa y obtenga  el total a pagar a todos sus empleados. Se debe tener en cuenta que la empresa también les paga un adicional de $2500 por cada año de antigüedad trabajado. 
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Empleado{
+	string nya;
+	int antig;
+public:
+	Empleado(string nom, int an):nya(nom),antig(an){}
+	virtual float Salario()=0;
+	string VerNombre(){return nya;}
+	int VerAntiguedad(){return antig;}
+};
+
+class Administrativo: public Empleado{
+	int horas, horasExtras;
+	float montoHora;
+public:
+	Administrativo(string nom, int an, int ht, int het, float mh):Empleado(nom,an){
+		horas=ht; horasExtras=het; montoHora=mh;
+	}
+	float Salario(){return horas*montoHora + horasExtras*montoHora*1.5;}
+};
+
+class Produccion: public Empleado{
+	int turno;
+	float montoFijo;
+public:
+	Produccion(string nom, int an, float mf, int tu):Empleado(nom,an){
+		montoFijo=mf; turno=tu;
+	}
+	float Salario(){return montoFijo + turno * montoFijo*0.25;}    //turno puede ser 0 o 1
+};
+
+class Vendedor: public Empleado{
+	float montoCheque, montoContado;
+public:
+	Vendedor(string nom, int an, float mch, float mc):Empleado(nom,an){
+		montoCheque=mch; montoContado=mc;
+	}
+	float Salario(){return 0.04*montoCheque+0.09*montoContado;}
+};
+
+float TotalSalarios(vector <Empleado*> x){
+    float s=0;
+	for(int i=0;i<x.size();i++) { 
+		s = s + x[i]->Salario() + x[i]->VerAntiguedad() * 2500;
+	}
+	return s;
+}
+
+
+
+
+int main(int argc, char *argv[]) {
+	
+	vector<Empleado*> empresa;
+	
+	empresa.push_back(new Vendedor("Pedro",2,10000,10000));
+	empresa.push_back(new Administrativo("ana",1,100,3,40));
+	empresa.push_back(new Vendedor("luis",12,10000,10000));
+	empresa.push_back(new Produccion("gonzalo",4,40000,1));
+	empresa.push_back(new Produccion("Marcos",0,20000,0));
+	empresa.push_back(new Vendedor("lucila",2,10000,10000));
+	empresa.push_back(new Administrativo("Paco",6,120,20,30));
+		
+	//Administrativo *a= new Administrativo("Juan",10,10,0,10);
+	//empresa.push_back(a);
+	
+	for(int i=0;i<empresa.size();i++) { 
+ 		cout<<empresa[i]->VerNombre()<<"   "<<empresa[i]->Salario()<<"       "<<empresa[i]->VerAntiguedad()<<endl;
+	}
+	
+	cout<<"\ntotal a pagar: "<<TotalSalarios(empresa)<<endl;
+	
+/*	Produccion *p= new Produccion("jorge",10,1000,1);
+	cout<< (*p).Salario();          //   (*puntero).metodo()      puntero->metodo()
+	delete p;
+*/
+	return 0;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ej.2(35 pts)  Una empresa que elabora y comercializa gaseosas le paga a sus empleados en forma mensual. De cada empleado se tienen como datos su nombre, apellido, dni y años de antigüedad. 
+Además tiene 3 tipos de empleados:  
+empleado administrativo:  cobra un sueldo fijo por hora y la hora extra se paga un 50% más de la hora normal. Este tipo de empleado tiene como atributos la cantidad de horas trabajadas y el la remuneración por hora.
+empleado de producción: no hacen horas extras y cobran un monto fijo mensual. La empresa opera en 2 turnos para la producción (diurno y nocturno). El empleado del turno noche cobra un 25% que el empleado diurno. Los datos propios de este  empleado son el turno (0: diurno, 1: nocturno) y el monto fijo mensual.
+empleados vendedores: cobran una comisión del 0,4% de acuerdo al total facturado  en ventas realizadas con cheques y el 0.9% de las ventas realizadas al contado.
+Cree la clase Empleado que contenga un método llamado salario() para obtener la remuneración del empleado y codifique los métodos que considere necesarios.
+Derive de Empleado las clases Administrativo, Produccion y Vendedor con los atributos antes mencionados (en los 3 tipos de empleados), con sus constructores y métodos para obtener lo que cobra cada uno.
+Cree una función independiente que reciba un vector con todos los empleados de la empresa y obtenga  el total a pagar a todos sus empleados. Se debe tener en cuenta que la empresa también les paga un adicional de $2500 por cada año de antigüedad trabajado. 
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Empleado{
+	string nya;
+	int antig;
+public:
+	Empleado(string nom, int an):nya(nom),antig(an){}
+	virtual float Salario()=0;
+	string VerNombre(){return nya;}
+	int VerAntiguedad(){return antig;}
+};
+
+class Administrativo: public Empleado{
+	int horas, horasExtras;
+	float montoHora;
+public:
+	Administrativo(string nom, int an, int ht, int het, float mh):Empleado(nom,an){
+		horas=ht; horasExtras=het; montoHora=mh;
+	}
+	float Salario(){return horas*montoHora + horasExtras*montoHora*1.5;}
+};
+
+class Produccion: public Empleado{
+	int turno;
+	float montoFijo;
+public:
+	Produccion(string nom, int an, float mf, int tu):Empleado(nom,an){
+		montoFijo=mf; turno=tu;
+	}
+	float Salario(){return montoFijo + turno * montoFijo*0.25;}    //turno puede ser 0 o 1
+};
+
+class Vendedor: public Empleado{
+	float montoCheque, montoContado;
+public:
+	Vendedor(string nom, int an, float mch, float mc):Empleado(nom,an){
+		montoCheque=mch; montoContado=mc;
+	}
+	float Salario(){return 0.04*montoCheque+0.09*montoContado;}
+};
+
+float TotalSalarios(vector <Empleado*> x){
+    float s=0;
+	for(int i=0;i<x.size();i++) { 
+		s = s + x[i]->Salario() + x[i]->VerAntiguedad() * 2500;
+	}
+	return s;
+}
+
+
+
+
+int main(int argc, char *argv[]) {
+	
+	vector<Empleado*> empresa;
+	
+	empresa.push_back(new Vendedor("Pedro",2,10000,10000));
+	empresa.push_back(new Administrativo("ana",1,100,3,40));
+	empresa.push_back(new Vendedor("luis",12,10000,10000));
+	empresa.push_back(new Produccion("gonzalo",4,40000,1));
+	empresa.push_back(new Produccion("Marcos",0,20000,0));
+	empresa.push_back(new Vendedor("lucila",2,10000,10000));
+	empresa.push_back(new Administrativo("Paco",6,120,20,30));
+		
+	//Administrativo *a= new Administrativo("Juan",10,10,0,10);
+	//empresa.push_back(a);
+	
+	for(int i=0;i<empresa.size();i++) { 
+ 		cout<<empresa[i]->VerNombre()<<"   "<<empresa[i]->Salario()<<"       "<<empresa[i]->VerAntiguedad()<<endl;
+	}
+	
+	cout<<"\ntotal a pagar: "<<TotalSalarios(empresa)<<endl;
+	
+/*	Produccion *p= new Produccion("jorge",10,1000,1);
+	cout<< (*p).Salario();          //   (*puntero).metodo()      puntero->metodo()
+	delete p;
+*/
+	return 0;
+} 

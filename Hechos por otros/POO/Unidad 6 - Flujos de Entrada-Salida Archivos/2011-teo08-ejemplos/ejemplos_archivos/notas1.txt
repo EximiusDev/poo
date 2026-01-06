@@ -1,0 +1,13 @@
+Carmack, Juan 
+10 9 10
+Crammond, Jorfe
+9 10 10
+Gates, Guillermo 
+6 5 7
+Parker, Pedro
+1 5 3
+Stallman, Ricardo 
+7 10 8
+Volkerding, Patricio 
+8 7 9
+	

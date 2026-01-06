@@ -1,0 +1,15 @@
+The term open source describes practices in production and development that promote access to 
+
+the end product's source materials. Some consider open source a philosophy, others consider it a 
+
+pragmatic methodology. Before the term open source became widely adopted, developers and producers 
+
+used a variety of phrases to describe the concept; open source gained hold with the rise of the Internet, 
+
+and the attendant need for massive retooling of the computing source code. Opening the source code enabled 
+
+a self-enhancing diversity of production models, communication paths, and interactive communities.
+
+Subsequently, the new phrase "open-source software" was born to describe the environment that the new 
+
+copyright, licensing, domain, and consumer issues created.

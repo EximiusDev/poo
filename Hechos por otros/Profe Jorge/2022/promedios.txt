@@ -1,0 +1,4 @@
+ana                      40.50   regular
+juan                      6.00   libre
+pedro                    22.00   libre
+luis                     13.50   libre

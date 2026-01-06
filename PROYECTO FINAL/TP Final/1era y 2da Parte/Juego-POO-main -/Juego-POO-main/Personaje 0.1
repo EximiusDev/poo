@@ -1,0 +1,118 @@
+#include <iostream>
+using namespace std;
+
+/*  personaje:
+
+nombre ///no necesario
+vida (integridad estructural)
+combustible / energia
+dinero
+inventario (objetos recogidos) /// no necesario
+mejoras (motor(eficiencia),taladros,tanque de combustible,refuerzo de estructura,
+///mejoras y equipamiento pueden ser una sola cosa
+equipamiento(bombas(distintos tipos),kit de reparacion,radar, andamios / escaleras
+
+
+moverse
+usar (bombas, kit de reparacion, etc)
+*/
+
+class Equipamiento{
+	int kit_rep_m;
+	int radar_m;
+	int andamios_m;
+	int motor_m;
+	int taladro_m;
+	int tanque_combust_m;
+	int refuerzo_estruc_m;
+	int bombas_m;
+public:
+	Equipamiento(int kit_rep, int radar, int andamios, int motor, int taladro, int tanque_combust, int refuerzo_estruc, int bombas){ /// Constructor
+		kit_rep_m = kit_rep;
+		radar_m = radar;
+		andamios_m = andamios;
+		motor_m = motor;
+		taladro_m  =  taladro;
+		tanque_combust_m = tanque_combust;
+		refuerzo_estruc_m = refuerzo_estruc;
+		bombas = bombas;
+	}
+	int VerCant_andamios(){ return andamios_m; 	}
+	void ModifCant_andamios(int andamios){
+		andamios_m = andamios;
+		// andamios_m = andamios_m + andamios;
+	}
+	int Ver_kit_rep(){ return kit_rep_m; 	}
+	void Modif_kit_rep(int kit_rep){ kit_rep_m = kit_rep;}
+	
+	int Ver_motor(){ return motor_m; 	}
+	void Modif_motor(int motor){ motor_m = motor;}
+	int Ver_taladro(){ return taladro_m; 	}
+	void Modif_taladro(int taladro){ taladro_m = taladro;}
+	int Ver_tanque_combust(){ return tanque_combust_m; 	}
+	void Modif_tanque_combust(int tanque_combust){ tanque_combust_m = tanque_combust;}
+	int Ver_refuerzo_estruc(){ return refuerzo_estruc_m; 	}
+	void Modif_refuerzo_estruc(int refuerzo_estruc){ refuerzo_estruc_m = refuerzo_estruc;	}
+	int VerCant_bombas(){ return bombas_m; 	}
+	void ModifCant_bombas(int bombas){ bombas_m = bombas;}
+	
+};
+
+///////////////////////////////////////////////////
+
+
+
+class Personaje{
+	int vida_m;
+	int combustible_m;
+	int dinero_m;
+	
+	Equipamiento equipo_pj; // composicion de clases
+	///mejoras, equipamiento, inventario
+public:
+	Personaje(int vida, int combustible, int dinero,Equipamiento equipo_p):vida_m(vida),combustible_m(combustible),dinero_m(dinero),equipo_pj(equipo_p){}
+	/* Personaje(int vida, int combustible, int dinero, Equipamiento equipo_p(int kit_rep, int radar, int andamios)){  //mal hecho
+		vida_m = vida;
+		combustible_m = combustible;
+		dinero_m = dinero;
+		equipo_pj = equipo_p;
+	}*/
+	/// moverse
+	/// usar 
+	///void Moverse(int tecla){
+	int Moverse(int tecla){
+		/*
+		if (tecla == ('a'||'A')){
+			
+		}
+		if (tecla == ('d'||'D')){
+			
+		}
+		if (tecla == ('s'||'S')){  ///abajo
+			
+		}
+		*/
+		if (tecla == ('w'||'W')){
+			if (equipo_pj.VerCant_andamios() > 0){
+				equipo_pj.ModifCant_andamios(equipo_pj.VerCant_andamios()-1);
+			}
+			else{
+				return -1;
+				///return null;
+			}
+		}
+	}
+				 
+	///	equipo_pj.VerCant_andamios();  // llamo a un metodo de la clase Equipamiento
+	/// void Usar
+};
+
+
+int main() {
+	
+	
+	
+	return 0;
+}
+
+

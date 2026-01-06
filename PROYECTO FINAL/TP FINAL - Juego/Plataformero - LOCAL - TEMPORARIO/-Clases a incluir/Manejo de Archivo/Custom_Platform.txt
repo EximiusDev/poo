@@ -1,0 +1,23 @@
+Leer plataformas customizadas
+
+//	'//' -> indica linea de comentarios	  	
+// las plataformas usan:   		
+//   'O' -> para bloques solidos	
+//   '.' -> para para ausencia de bloques 
+
+Ejemplo de una plataforma completa: 
+
+	case 0: // No repetir numero, usar de la forma: 0,1,2,3,4,...
+		//	  		 "0123456789" 
+		Preset_Platform_Plat[0]= "........";
+		Preset_Platform_Plat[1]= "........";
+		Preset_Platform_Plat[2]= "........";
+		Preset_Platform_Plat[3]= "..OOOO..";
+		Preset_Platform_Plat[4]= "..OOOO..";
+		Preset_Platform_Plat[5]= "........";
+		Preset_Platform_Plat[6]= "........";
+		Preset_Platform_Plat[7]= "........";
+		Preset_Platform_Plat[8]= "OOOOOOOO";
+
+	// lo que importa esta despues del signo igual
+	// las lineas de plataforma estan entre comillas dobles

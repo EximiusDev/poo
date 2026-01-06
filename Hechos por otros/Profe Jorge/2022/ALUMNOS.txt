@@ -1,0 +1,8 @@
+ana
+40  41
+juan
+4  8
+pedro
+4  40
+luis
+23  4

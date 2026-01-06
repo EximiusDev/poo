@@ -1,0 +1,20 @@
+juego poo (plataformas)
+
+problemas:
+
+cambiar la forma de las clases(hacer una correcta organizacion de clases)(clases distinta para cada escena y ojetos que representen bien los objetos)
+
+no hacer un load from file todo el tiempo, solo en el constructor
+
+cosas sin inicializar
+
+las texturas que usarmos no cambien de lugar (vector de variables que son punteros, se rompe)(vector que haga resize)
+
+deberia ser un vector de los punteros para que los punteros sigan señalando a la imagen o textura señalizada y no que cambie de lugar y no señale nada
+
+
+
+meter a la esena alguna variacion (para que no se haga monotona)
+Y meter puntajes para meter archivos
+
+Encontré algo después de que cortamos la llamada. En CrearFondo::setMov recorren el vector con indices en base 1, no en base 0 como deberían, y entonces el acceso al último fondo es inválido y eso puede ser lo que hacía que reviente a cada rato.

@@ -1,0 +1,4 @@
+Estos son los ejemplos que resolvimos entre las teorías y consultas de miercoles y jueves.
+Los ejercicios complex, racional y mystack formaban un parcial (mas la parte de teoría, 10pts, que no está).
+Los otros tambien son extraidos de parciales viejos.
+

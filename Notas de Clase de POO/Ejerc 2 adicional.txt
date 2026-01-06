@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+/*Cree e inicialice dos objetos, uno de tipo Triángulo y otro de Tipo
+  Rectángulo, cada clase consta de atributos y métodos para calcular su
+	superficie y perímetro. Diseñe un programa que calcule la superficie de
+	un prisma triangular, cuyas caras son los objetos anteriores, a través
+	de una función externa amiga acceda a los atributos privados y realice
+	el cálculo, en el programa principal.
+	¿Es necesario utilizar amistad en este caso? ¿Es conveniente?
+	¿Si fuera a diseñar una clase Prisma para este fin, convendría utilizar
+	herencia o composición? (justifique)
+*/
+class Triang{
+	float base, altura;
+public:
+	Triang(float b, float h):base(b),altura(h){}
+	void Datos(float b, float h){base=b;altura=h;}
+	float Area(){return base*altura/2.0;}
+	friend float AreaPrisma(float b,float htr, float hre);
+};
+class Rectang{
+	float base, altura;
+public:
+	Rectang(float b, float h):base(b),altura(h){}
+	void Datos(float b, float h){base=b;altura=h;}
+	float Area(){return base*altura;}
+	friend float AreaPrisma(float b,float htr, float hre);
+};
+
+class PrismaTriang{     //creo que es la mejor opcion
+	Triang t;
+	Rectang r;
+public:
+	PrismaTriang(float bt,float ht, float hr):t(bt,ht),r(bt,hr){}  //la base del triang es igual a la base del rectang
+    float Area(){return 2*t.Area() + 3*r.Area();}
+};
+
+
+float AreaPrisma(float b,float htr, float hre){   //con amistad
+  Triang t(b,htr);
+  Rectang r(b,hre);
+  return 2*r.base*t.altura/2 + 3*r.base*r.altura;
+}
+  
+float AreaPrismaSinAmistad(float b,float htr, float hre){
+	  Triang t(b,htr);
+	  Rectang r(b,hre);
+	  return 2*t.Area() + 3*r.Area();
+}
+  
+
+
+int main(int argc, char *argv[]) {
+ //  PrismaTriang pt(2,1,10);   //1+1+20+20+20=62
+   //cout<<"Area del prisma: "<<pt.Area();
+   cout<<"Area del prisma: "<<AreaPrismaSinAmistad(2,1,10);
+   return 0;
+} 

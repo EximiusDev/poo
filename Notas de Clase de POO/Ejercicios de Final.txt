@@ -1,0 +1,42 @@
+Una empresa de turismo ofrece paquetes de vacaciones utilizando una combinación de distintos medios de transporte por viaje: barco, tren y colectivo. Escriba un programa C++ en donde se declare una clase Transporte para modelar un tramo del recorrido que tendrá como atributos la distancia, costo y duración. Además declare otras tres clases: TransporteBarco, TransporteTren y TransporteColectivo, que deben servir para representar un viaje en cada medio de transporte. Puede agregar otros atributos si lo considera necesario. Las clases deben tener métodos para consultar la distancia, la duración y el costo de ese trayecto. Los constructores reciben como datos cual es la distancia a recorrer en kilometros. La duración en horas y el costo se calcula a partir de la distancia de la siguiente manera: 
+barco:		duración: 4+distancia/30    	costo:  20+distancia*10
+tren: 		duración: 1+distancia/120    	costo:  distancia*6
+colectivo: 	duración: distancia/80   	costo:  2+distancia*3
+Para calcular el costo total y la duración de un paquete turístico, deberá crear una función independiente llamada viaje(), que recibe como parámetro un vector con todos recorridos del viaje. Cree un breve programa cliente para probar la función. 
+
+
+
+Ej.2(35 pts)  Una empresa que elabora y comercializa gaseosas le paga a sus empleados en forma mensual. De cada empleado se tienen como datos su nombre, apellido, dni y años de antigüedad. 
+Además tiene 3 tipos de empleados:  
+empleado administrativo:  cobra un sueldo fijo por hora y la hora extra se paga un 50% más de la hora normal. Este tipo de empleado tiene como atributos la cantidad de horas trabajadas y el la remuneración por hora.
+empleado de producción: no hacen horas extras y cobran un monto fijo mensual. La empresa opera en 2 turnos para la producción (diurno y nocturno). El empleado del turno noche cobra un 25% que el empleado diurno. Los datos propios de este  empleado son el turno (0: diurno, 1: nocturno) y el monto fijo mensual.
+empleados vendedores: cobran una comisión del 0,4% de acuerdo al total facturado  en ventas realizadas con cheques y el 0.9% de las ventas realizadas al contado.
+Cree la clase Empleado que contenga un método llamado salario() para obtener la remuneración del empleado y codifique los métodos que considere necesarios.
+Derive de Empleado las clases Administrativo, Produccion y Vendedor con los atributos antes mencionados (en los 3 tipos de empleados), con sus constructores y métodos para obtener lo que cobra cada uno.
+Cree una función independiente que reciba un vector con todos los empleados de la empresa y obtenga  el total a pagar a todos sus empleados. Se debe tener en cuenta que la empresa también les paga un adicional de $2500 por cada año de antigüedad trabajado. 
+
+Jorge dice:Utilizando notación de punteros, escriba una función C++ que genere un arreglo dinámico y lineal de N elementos numéricos enteros, con valores aleatorios menores que 1000 y devuelva la dirección de memoria del elemento cuya posición en el arreglo se le pasa a l función como parámetro. N es un dato ingresado por el usuario. Utilice los parámetros que crea conveniente. Realice un programa cliente que utilice la función. 
+
+
+
+
+
+
+Ej.3 (30 pts): a) Una empresa alquila 2 tipos de vehículos: camionetas y camiones para transporte. Modele una clase base Vehículo que permita definir su tipo mediante el constructor, y consultarlo luego con otro método.
+b) Estos vehículos pueden tener distintas características. Un camión puede tener o no acoplado, y además tiene una tara y una masa máxima autorizada (dos valores reales). Una camioneta puede tener la caja cerrada o abierta, y además tiene un peso máximo que puede transportar. Implemente las clases Camioneta y Camion, que permitan definir en sus constructores las características. Se sabe además que el precio del alquiler varía de acuerdo al tipo de vehículo, sus características y los días de alquiler. Deberá implementar en ambas clases un método CalcularPrecioAlquiler(dias) que reciba la cantidad de días solicitados. Para los camiones el precio es se calcula como: F * 10 * dias * (masaMáximaAutorizada - tara), donde F vale 5 si tiene acoplado y 2 si no.. Para las camionetas el precio se calcula de la siguiente manera: F * 15 * dias * peso, donde F vale 3.5 si tiene caja cerrada, 2 si es abierta.
+c) Implemente una función independiente RecaudaciónAlquileres(..) que reciba 2 parámetros: un vector de Vehículos con todos los alquileres los realizados y otro vector de enteros que contenga los días solicitados para cada vehículo. Esta función deberá acumular y retornar el total recaudado. 
+
+Una empresa de turismo ofrece paquetes de vacaciones utilizando una combinación de distintos medios de transporte por viaje: barco, tren y colectivo. Escriba un programa C++ en donde se declare una clase Transporte para modelar un tramo del recorrido que tendrá como atributos la distancia, costo y duración. Además declare otras tres clases: TransporteBarco, TransporteTren y TransporteColectivo, que deben servir para representar un viaje en cada medio de transporte. Puede agregar otros atributos si lo considera necesario. Las clases deben tener métodos para consultar la distancia, la duración y el costo de ese trayecto. Los constructores reciben como datos cual es la distancia a recorrer en kilometros. La duración en horas y el costo se calcula a partir de la distancia de la siguiente manera: 
+barco:		duración: 4+distancia/30    	costo:  20+distancia*10
+tren: 		duración: 1+distancia/120    	costo:  distancia*6
+colectivo: 	duración: distancia/80   	costo:  2+distancia*3
+Para calcular el costo total y la duración de un paquete turístico, deberá crear una función independiente llamada viaje(), que recibe como parámetro un vector con todos recorridos del viaje. Cree un breve programa cliente para probar la función. 
+
+Jorge dice:Ej.2(35 pts)  Una empresa que elabora y comercializa gaseosas le paga a sus empleados en forma mensual. De cada empleado se tienen como datos su nombre, apellido, dni y años de antigüedad. 
+Además tiene 3 tipos de empleados:  
+empleado administrativo:  cobra un sueldo fijo por hora y la hora extra se paga un 50% más de la hora normal. Este tipo de empleado tiene como atributos la cantidad de horas trabajadas y el la remuneración por hora.
+empleado de producción: no hacen horas extras y cobran un monto fijo mensual. La empresa opera en 2 turnos para la producción (diurno y nocturno). El empleado del turno noche cobra un 25% que el empleado diurno. Los datos propios de este  empleado son el turno (0: diurno, 1: nocturno) y el monto fijo mensual.
+empleados vendedores: cobran una comisión del 0,4% de acuerdo al total facturado  en ventas realizadas con cheques y el 0.9% de las ventas realizadas al contado.
+Cree la clase Empleado que contenga un método llamado salario() para obtener la remuneración del empleado y codifique los métodos que considere necesarios.
+Derive de Empleado las clases Administrativo, Produccion y Vendedor con los atributos antes mencionados (en los 3 tipos de empleados), con sus constructores y métodos para obtener lo que cobra cada uno.
+Cree una función independiente que reciba un vector con todos los empleados de la empresa y obtenga  el total a pagar a todos sus empleados. Se debe tener en cuenta que la empresa también les paga un adicional de $2500 por cada año de antigüedad trabajado. 

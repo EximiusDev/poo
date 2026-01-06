@@ -1,0 +1,10 @@
+struct Equipo{
+	int kit_rep_m;
+	int radar_m;
+	int andamios_m;
+	int motor_m;
+	int taladro_m;
+	int tanque_combust_m;
+	int refuerzo_estruc_m;
+	int bombas_m;
+};

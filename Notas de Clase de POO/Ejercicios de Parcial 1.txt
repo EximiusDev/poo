@@ -1,0 +1,89 @@
+Emanuel Blanco dice:) Programar una clase Animal que tenga un método desplazarse() y otro método tipo(). Programe las
+clases Mamifero, Ave y Pez, que son hijas de la clase Animal. Los atributos de las clases son el tipo y
+la especie del animal, cuyos valores deben ser pasados al constructor de la clase base. Además deberá
+sobreescribir los métodos desplazarse() y tipo(), de tal manera que el primer método devuelve una
+cadena de texto indicando el tipo de desplazamiento según el tipo: “camina” para el tipo “mamífero”,
+“vuela” para el tipo “ave” y “nada” para el tipo “pez”. Escriba un programa cliente que permita modelar un
+Parque y almacene la información de los animales en un único arreglo de 30 elementos y luego emita
+un listado de los mismos describiendo el tipo y la forma de desplazamiento de cada animal. Finalmente
+responda: ¿Hay entre las clases algún método virtual puro?¿Por qué? 
+
+
+
+
+
+
+Jorge
+Jorge dice:
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+class Animal{ 
+	string especie;
+	string tipoAn;
+public:
+   Animal(string t, string e):tipoAn(t), especie(e){}
+   virtual string desplazarse()=0;
+   virtual string tipo()=0;
+   string verEspecie(){return especie;}
+   string verTipo(){return tipoAn;}
+   virtual ~Animal(){cout<<"fin animal\n\n";};
+};
+
+class Mamifero: public Animal{
+public:
+	Mamifero():Animal("Mamifero","Camina"){}
+	string desplazarse(){return "Camina";}
+	string tipo(){return "mamífero";}
+	~Mamifero(){cout<<"fin mamifero\n";};
+	
+};
+
+class Pez: public Animal{
+public:
+	Pez():Animal("Pez","Nada"){}
+	string desplazarse(){return "Nada";}
+	string tipo(){return "pez";}
+	~Pez(){cout<<"fin pez\n";};
+	
+};
+
+class Ave: public Animal{
+public:
+	Ave():Animal("Ave","Vuela"){}
+	string desplazarse(){return "Vuela";}
+	string tipo(){return "ave";}
+	~Ave(){cout<<"fin ave\n";};
+	
+};
+
+
+int main(int argc, char *argv[]) {
+ 	vector<Animal*> parque;
+	int n;
+	srand(time(0));
+	//creo dinamicamente los animales al azar
+	for(int i=0;i<5;i++) { 
+		n=rand()%3;
+		switch(n){
+			case 0: {parque.push_back(new Mamifero());break;}
+			case 1: {parque.push_back(new Pez());break;}
+			case 2: {parque.push_back(new Ave());break;}
+		}
+	}
+	//muestro los valores del vector
+	for(int i=0;i<parque.size();i++) { 
+		cout<<parque[i]->tipo()<<" como se desplaza: "<< parque[i]->desplazarse()<<endl;
+	}
+
+	//borro los animales creado dinamicamente
+	for(int i=0;i<parque.size();i++) {
+		delete parque[i];
+	}
+
+	return 0;
+} 
